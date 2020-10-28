@@ -55,6 +55,7 @@
     Private Sub txtFirstName_TextChanged(sender As Object, e As EventArgs) Handles txtFirstName.TextChanged, txtFirstName.Leave
         If (Trim(txtFirstName.Text) = "") Then
             validFirstName = False
+            btnAddStud.Enabled = False
             txtFirstName.BackColor = invalidColour
         Else
             validFirstName = True
@@ -66,6 +67,7 @@
     Private Sub txtLastName_TextChanged(sender As Object, e As EventArgs) Handles txtLastName.TextChanged, txtLastName.Leave
         If (Trim(txtLastName.Text) = "") Then
             validLastName = False
+            btnAddStud.Enabled = False
             txtLastName.BackColor = invalidColour
         Else
             validLastName = True
@@ -79,6 +81,7 @@
         If Not (txtDOB.Text >= #1/1/1960# AndAlso txtDOB.Text < #1/1/2010#) Then
             txtDOB.CalendarMonthBackground = invalidColour
             validDOB = False
+            btnAddStud.Enabled = False
         Else
             txtDOB.CalendarMonthBackground = validColour
             validDOB = True
@@ -87,33 +90,44 @@
     End Sub
 #End Region
 #Region "Validate Gender"
-    Private Sub btnGender_CheckedChanged(sender As Object, e As EventArgs) Handles btnMale.CheckedChanged, btnFemale.CheckedChanged, btnOther.CheckedChanged
+    Private Sub btnMale_CheckedChanged(sender As Object, e As EventArgs) Handles btnMale.CheckedChanged
         If (btnMale.Checked) Then
             validGender = True
             myGender = "Male"
             CheckComplete()
-        ElseIf (btnFemale.Checked) Then
+        End If
+    End Sub
+
+    Private Sub btnFemale_CheckedChanged(sender As Object, e As EventArgs) Handles btnFemale.CheckedChanged
+        If (btnFemale.Checked) Then
             validGender = True
             myGender = "Female"
             CheckComplete()
-        Else
-            If (Not txtOther.Text = "") Then
+        End If
+    End Sub
+
+    Private Sub btnOther_CheckedChanged(sender As Object, e As EventArgs) Handles btnOther.CheckedChanged
+        If (btnOther.Checked) Then
+            If (txtOther.Text <> "") Then
                 validGender = True
                 myGender = txtOther.Text
                 CheckComplete()
             Else
                 validGender = False
+                btnAddStud.Enabled = False
             End If
         End If
     End Sub
+
     Private Sub txtOther_TextChanged(sender As Object, e As EventArgs) Handles txtOther.TextChanged, txtOther.Leave
-        If (btnOther.Checked) And (Not txtOther.Text = "") Then
+        If (btnOther.Checked And txtOther.Text <> "") Then
             validGender = True
             txtOther.BackColor = validColour
             myGender = txtOther.Text
             CheckComplete()
         Else
             txtOther.BackColor = invalidColour
+            btnAddStud.Enabled = False
             validGender = False
         End If
     End Sub
@@ -122,9 +136,11 @@
     Private Sub txtAvMk_TextChanged(sender As Object, e As EventArgs) Handles txtAvMk.TextChanged, txtAvMk.Leave
         If (Not IsNumeric(txtAvMk.Text)) Then
             validAvMk = False
+            btnAddStud.Enabled = False
             txtAvMk.BackColor = invalidColour
         ElseIf (txtAvMk.Text < 0) Or (txtAvMk.Text > 100) Then
             validAvMk = False
+            btnAddStud.Enabled = False
             txtAvMk.BackColor = invalidColour
         Else
             validAvMk = True
@@ -137,6 +153,7 @@
     Private Sub txtPhone_TextChanged(sender As Object, e As EventArgs) Handles txtPhone.TextChanged, txtPhone.Leave
         If Not Len(Trim(txtPhone.Text)) = 12 Then
             txtPhone.BackColor = invalidColour
+            btnAddStud.Enabled = False
             validPhoneNo = False
         Else
             txtPhone.BackColor = validColour
@@ -145,7 +162,7 @@
         End If
     End Sub
 #End Region
-
+#Region "Add Student Button"
     Private Sub btnAddStud_Click(sender As Object, e As EventArgs) Handles btnAddStud.Click
         'place text from text boxes into the array - first students(0), then students(1), students(2) etc
         students(studentCount).firstName = txtFirstName.Text
@@ -185,7 +202,8 @@
 
         UpdateList()
     End Sub
-
+#End Region
+#Region "Load Test Records"
     Private Sub LoadTestRecords()
         students(0).firstName = "Johnny"
         students(0).lastName = "Depp"
@@ -225,7 +243,8 @@
         studentCount = 5
         UpdateList()
     End Sub
-
+#End Region
+#Region "Update List"
     Private Sub UpdateList()
         'clear the list box as it keeps the earlier loop
         lstStud.Items.Clear()
@@ -236,6 +255,8 @@
                               " - " & students(i).phoneNo & " - " & students(i).paid & ".")
         Next
     End Sub
+#End Region
+#Region "Check if Complete"
     Private Sub CheckComplete()
         If (validFirstName And validLastName And validDOB And validGender And validAvMk And validPhoneNo) Then
             btnAddStud.Enabled = True
@@ -243,8 +264,5 @@
             btnAddStud.Enabled = False
         End If
     End Sub
-
-    Private Sub txtDOB_ValueChanged_1(sender As Object, e As EventArgs) Handles txtDOB.ValueChanged
-
-    End Sub
+#End Region
 End Class

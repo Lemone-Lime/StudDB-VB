@@ -269,7 +269,7 @@ Partial Class Form
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Form"
-        Me.Text = "V02 - StudDB"
+        Me.Text = "V02.1 - StudDB"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
