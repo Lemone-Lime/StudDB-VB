@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,281 +20,440 @@ Partial Class Form
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form))
-        Me.txtFirstName = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.txtLastName = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtAvMk = New System.Windows.Forms.TextBox()
         Me.btnAddStud = New System.Windows.Forms.Button()
         Me.lstStud = New System.Windows.Forms.ListBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtPhone = New System.Windows.Forms.MaskedTextBox()
         Me.chkPaid = New System.Windows.Forms.CheckBox()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.txtDOB = New System.Windows.Forms.DateTimePicker()
-        Me.btnMale = New System.Windows.Forms.RadioButton()
-        Me.btnFemale = New System.Windows.Forms.RadioButton()
-        Me.btnOther = New System.Windows.Forms.RadioButton()
+        Me.rbMale = New System.Windows.Forms.RadioButton()
+        Me.rbFemale = New System.Windows.Forms.RadioButton()
+        Me.rbOther = New System.Windows.Forms.RadioButton()
         Me.txtOther = New System.Windows.Forms.TextBox()
+        Me.toolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.gbGender = New System.Windows.Forms.GroupBox()
+        Me.gbDOB = New System.Windows.Forms.GroupBox()
+        Me.rbAfter = New System.Windows.Forms.RadioButton()
+        Me.rbBefore = New System.Windows.Forms.RadioButton()
+        Me.gbLastName = New System.Windows.Forms.GroupBox()
+        Me.gbFirstName = New System.Windows.Forms.GroupBox()
+        Me.txtFirstName = New System.Windows.Forms.TextBox()
+        Me.gbAvMk = New System.Windows.Forms.GroupBox()
+        Me.txtAvMk = New System.Windows.Forms.TextBox()
+        Me.rbGreater = New System.Windows.Forms.RadioButton()
+        Me.rbLesser = New System.Windows.Forms.RadioButton()
+        Me.gbPhone = New System.Windows.Forms.GroupBox()
+        Me.txtPhoneNo = New System.Windows.Forms.MaskedTextBox()
+        Me.gbAcMo = New System.Windows.Forms.GroupBox()
+        Me.rbFind = New System.Windows.Forms.RadioButton()
+        Me.rbAdd = New System.Windows.Forms.RadioButton()
+        Me.gbPaid = New System.Windows.Forms.GroupBox()
+        Me.gbList = New System.Windows.Forms.GroupBox()
+        Me.btnReset = New System.Windows.Forms.Button()
+        Me.btnLoadFile = New System.Windows.Forms.Button()
+        Me.btnSaveFile = New System.Windows.Forms.Button()
+        Me.gbGender.SuspendLayout()
+        Me.gbDOB.SuspendLayout()
+        Me.gbLastName.SuspendLayout()
+        Me.gbFirstName.SuspendLayout()
+        Me.gbAvMk.SuspendLayout()
+        Me.gbPhone.SuspendLayout()
+        Me.gbAcMo.SuspendLayout()
+        Me.gbPaid.SuspendLayout()
+        Me.gbList.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'txtFirstName
-        '
-        Me.txtFirstName.BackColor = System.Drawing.SystemColors.Window
-        Me.txtFirstName.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtFirstName.Location = New System.Drawing.Point(35, 107)
-        Me.txtFirstName.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.txtFirstName.Name = "txtFirstName"
-        Me.txtFirstName.Size = New System.Drawing.Size(148, 26)
-        Me.txtFirstName.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(35, 33)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(162, 20)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Enter Student Details"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(35, 77)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(86, 20)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "First Name"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(194, 77)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(86, 20)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Last Name"
         '
         'txtLastName
         '
-        Me.txtLastName.Location = New System.Drawing.Point(194, 107)
+        Me.txtLastName.Location = New System.Drawing.Point(4, 27)
         Me.txtLastName.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtLastName.Name = "txtLastName"
         Me.txtLastName.Size = New System.Drawing.Size(148, 26)
-        Me.txtLastName.TabIndex = 1
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(362, 77)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(99, 20)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Date of Birth"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(722, 77)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(63, 20)
-        Me.Label5.TabIndex = 8
-        Me.Label5.Text = "Gender"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(40, 146)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(148, 20)
-        Me.Label6.TabIndex = 10
-        Me.Label6.Text = "Average Mk (0-100)"
-        '
-        'txtAvMk
-        '
-        Me.txtAvMk.Location = New System.Drawing.Point(40, 171)
-        Me.txtAvMk.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.txtAvMk.MaxLength = 5
-        Me.txtAvMk.Name = "txtAvMk"
-        Me.txtAvMk.Size = New System.Drawing.Size(148, 26)
-        Me.txtAvMk.TabIndex = 10
+        Me.txtLastName.TabIndex = 3
         '
         'btnAddStud
         '
         Me.btnAddStud.Enabled = False
-        Me.btnAddStud.Location = New System.Drawing.Point(405, 205)
+        Me.btnAddStud.Location = New System.Drawing.Point(390, 223)
         Me.btnAddStud.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnAddStud.Name = "btnAddStud"
         Me.btnAddStud.Size = New System.Drawing.Size(156, 35)
-        Me.btnAddStud.TabIndex = 13
+        Me.btnAddStud.TabIndex = 10
         Me.btnAddStud.Text = "Add Student"
         Me.btnAddStud.UseVisualStyleBackColor = True
         '
         'lstStud
         '
+        Me.lstStud.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
         Me.lstStud.FormattingEnabled = True
         Me.lstStud.ItemHeight = 20
-        Me.lstStud.Location = New System.Drawing.Point(36, 267)
+        Me.lstStud.Location = New System.Drawing.Point(7, 27)
         Me.lstStud.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.lstStud.Name = "lstStud"
-        Me.lstStud.Size = New System.Drawing.Size(798, 244)
-        Me.lstStud.TabIndex = 14
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(40, 238)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(182, 20)
-        Me.Label8.TabIndex = 16
-        Me.Label8.Text = "List of Entered Students"
-        '
-        'txtPhone
-        '
-        Me.txtPhone.Location = New System.Drawing.Point(203, 171)
-        Me.txtPhone.Mask = "0000-000-000"
-        Me.txtPhone.Name = "txtPhone"
-        Me.txtPhone.Size = New System.Drawing.Size(148, 26)
-        Me.txtPhone.TabIndex = 11
+        Me.lstStud.Size = New System.Drawing.Size(924, 244)
+        Me.lstStud.TabIndex = 11
         '
         'chkPaid
         '
         Me.chkPaid.AutoSize = True
-        Me.chkPaid.Location = New System.Drawing.Point(366, 173)
+        Me.chkPaid.Location = New System.Drawing.Point(60, 14)
         Me.chkPaid.Name = "chkPaid"
         Me.chkPaid.Size = New System.Drawing.Size(66, 24)
-        Me.chkPaid.TabIndex = 12
+        Me.chkPaid.TabIndex = 6
         Me.chkPaid.Text = "Paid"
         Me.chkPaid.UseVisualStyleBackColor = True
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(210, 148)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(115, 20)
-        Me.Label7.TabIndex = 17
-        Me.Label7.Text = "Phone Number"
-        '
         'txtDOB
         '
-        Me.txtDOB.Location = New System.Drawing.Point(357, 107)
+        Me.txtDOB.Location = New System.Drawing.Point(6, 31)
         Me.txtDOB.Name = "txtDOB"
-        Me.txtDOB.Size = New System.Drawing.Size(350, 26)
-        Me.txtDOB.TabIndex = 2
+        Me.txtDOB.Size = New System.Drawing.Size(289, 26)
+        Me.txtDOB.TabIndex = 8
         Me.txtDOB.Value = New Date(2003, 1, 1, 0, 0, 0, 0)
         '
-        'btnMale
+        'rbMale
         '
-        Me.btnMale.AutoSize = True
-        Me.btnMale.Location = New System.Drawing.Point(713, 100)
-        Me.btnMale.Name = "btnMale"
-        Me.btnMale.Size = New System.Drawing.Size(68, 24)
-        Me.btnMale.TabIndex = 6
-        Me.btnMale.TabStop = True
-        Me.btnMale.Text = "Male"
-        Me.btnMale.UseVisualStyleBackColor = True
+        Me.rbMale.AutoSize = True
+        Me.rbMale.Location = New System.Drawing.Point(6, 31)
+        Me.rbMale.Name = "rbMale"
+        Me.rbMale.Size = New System.Drawing.Size(68, 24)
+        Me.rbMale.TabIndex = 6
+        Me.rbMale.TabStop = True
+        Me.rbMale.Text = "Male"
+        Me.rbMale.UseVisualStyleBackColor = True
         '
-        'btnFemale
+        'rbFemale
         '
-        Me.btnFemale.AutoSize = True
-        Me.btnFemale.Location = New System.Drawing.Point(713, 130)
-        Me.btnFemale.Name = "btnFemale"
-        Me.btnFemale.Size = New System.Drawing.Size(87, 24)
-        Me.btnFemale.TabIndex = 7
-        Me.btnFemale.TabStop = True
-        Me.btnFemale.Text = "Female"
-        Me.btnFemale.UseVisualStyleBackColor = True
+        Me.rbFemale.AutoSize = True
+        Me.rbFemale.Location = New System.Drawing.Point(6, 65)
+        Me.rbFemale.Name = "rbFemale"
+        Me.rbFemale.Size = New System.Drawing.Size(87, 24)
+        Me.rbFemale.TabIndex = 7
+        Me.rbFemale.TabStop = True
+        Me.rbFemale.Text = "Female"
+        Me.rbFemale.UseVisualStyleBackColor = True
         '
-        'btnOther
+        'rbOther
         '
-        Me.btnOther.AutoSize = True
-        Me.btnOther.Location = New System.Drawing.Point(713, 160)
-        Me.btnOther.Name = "btnOther"
-        Me.btnOther.Size = New System.Drawing.Size(74, 24)
-        Me.btnOther.TabIndex = 8
-        Me.btnOther.TabStop = True
-        Me.btnOther.Text = "Other"
-        Me.btnOther.UseVisualStyleBackColor = True
+        Me.rbOther.AutoSize = True
+        Me.rbOther.Location = New System.Drawing.Point(6, 100)
+        Me.rbOther.Name = "rbOther"
+        Me.rbOther.Size = New System.Drawing.Size(74, 24)
+        Me.rbOther.TabIndex = 8
+        Me.rbOther.TabStop = True
+        Me.rbOther.Text = "Other"
+        Me.rbOther.UseVisualStyleBackColor = True
         '
         'txtOther
         '
-        Me.txtOther.Location = New System.Drawing.Point(794, 158)
+        Me.txtOther.Location = New System.Drawing.Point(84, 97)
         Me.txtOther.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtOther.Name = "txtOther"
         Me.txtOther.Size = New System.Drawing.Size(109, 26)
         Me.txtOther.TabIndex = 9
+        '
+        'gbGender
+        '
+        Me.gbGender.Controls.Add(Me.rbMale)
+        Me.gbGender.Controls.Add(Me.txtOther)
+        Me.gbGender.Controls.Add(Me.rbFemale)
+        Me.gbGender.Controls.Add(Me.rbOther)
+        Me.gbGender.Location = New System.Drawing.Point(353, 76)
+        Me.gbGender.Name = "gbGender"
+        Me.gbGender.Size = New System.Drawing.Size(200, 139)
+        Me.gbGender.TabIndex = 4
+        Me.gbGender.TabStop = False
+        Me.gbGender.Text = "Gender"
+        Me.toolTip.SetToolTip(Me.gbGender, "Please choose from 'Male', 'Female' and 'Other'. If you select 'Other', please en" &
+        "ter your Gender in the box provided.")
+        '
+        'gbDOB
+        '
+        Me.gbDOB.Controls.Add(Me.rbAfter)
+        Me.gbDOB.Controls.Add(Me.txtDOB)
+        Me.gbDOB.Controls.Add(Me.rbBefore)
+        Me.gbDOB.Location = New System.Drawing.Point(559, 76)
+        Me.gbDOB.Name = "gbDOB"
+        Me.gbDOB.Size = New System.Drawing.Size(399, 78)
+        Me.gbDOB.TabIndex = 8
+        Me.gbDOB.TabStop = False
+        Me.gbDOB.Text = "Date of Birth"
+        Me.toolTip.SetToolTip(Me.gbDOB, "Date of Birth must be from 1 January 1960 to 1 January 2010.")
+        '
+        'rbAfter
+        '
+        Me.rbAfter.AutoSize = True
+        Me.rbAfter.BackColor = System.Drawing.Color.Transparent
+        Me.rbAfter.Location = New System.Drawing.Point(311, 45)
+        Me.rbAfter.Name = "rbAfter"
+        Me.rbAfter.Size = New System.Drawing.Size(69, 24)
+        Me.rbAfter.TabIndex = 8
+        Me.rbAfter.Text = "After"
+        Me.rbAfter.UseVisualStyleBackColor = False
+        Me.rbAfter.Visible = False
+        '
+        'rbBefore
+        '
+        Me.rbBefore.AutoSize = True
+        Me.rbBefore.BackColor = System.Drawing.Color.Transparent
+        Me.rbBefore.Location = New System.Drawing.Point(311, 16)
+        Me.rbBefore.Name = "rbBefore"
+        Me.rbBefore.Size = New System.Drawing.Size(82, 24)
+        Me.rbBefore.TabIndex = 7
+        Me.rbBefore.Text = "Before"
+        Me.rbBefore.UseVisualStyleBackColor = False
+        Me.rbBefore.Visible = False
+        '
+        'gbLastName
+        '
+        Me.gbLastName.Controls.Add(Me.txtLastName)
+        Me.gbLastName.Location = New System.Drawing.Point(190, 76)
+        Me.gbLastName.Name = "gbLastName"
+        Me.gbLastName.Size = New System.Drawing.Size(157, 69)
+        Me.gbLastName.TabIndex = 1
+        Me.gbLastName.TabStop = False
+        Me.gbLastName.Text = "Last Name"
+        Me.toolTip.SetToolTip(Me.gbLastName, "Names must contain only letters from A-Z and no numbers or special characters.")
+        '
+        'gbFirstName
+        '
+        Me.gbFirstName.Controls.Add(Me.txtFirstName)
+        Me.gbFirstName.Location = New System.Drawing.Point(27, 77)
+        Me.gbFirstName.Name = "gbFirstName"
+        Me.gbFirstName.Size = New System.Drawing.Size(157, 69)
+        Me.gbFirstName.TabIndex = 0
+        Me.gbFirstName.TabStop = False
+        Me.gbFirstName.Text = "FirstName"
+        Me.toolTip.SetToolTip(Me.gbFirstName, "Names must contain only letters from A-Z and no numbers or special characters.")
+        '
+        'txtFirstName
+        '
+        Me.txtFirstName.Location = New System.Drawing.Point(4, 27)
+        Me.txtFirstName.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txtFirstName.Name = "txtFirstName"
+        Me.txtFirstName.Size = New System.Drawing.Size(148, 26)
+        Me.txtFirstName.TabIndex = 2
+        '
+        'gbAvMk
+        '
+        Me.gbAvMk.Controls.Add(Me.txtAvMk)
+        Me.gbAvMk.Controls.Add(Me.rbGreater)
+        Me.gbAvMk.Controls.Add(Me.rbLesser)
+        Me.gbAvMk.Location = New System.Drawing.Point(27, 146)
+        Me.gbAvMk.Name = "gbAvMk"
+        Me.gbAvMk.Size = New System.Drawing.Size(157, 69)
+        Me.gbAvMk.TabIndex = 2
+        Me.gbAvMk.TabStop = False
+        Me.gbAvMk.Text = "Average Mark"
+        '
+        'txtAvMk
+        '
+        Me.txtAvMk.Location = New System.Drawing.Point(4, 27)
+        Me.txtAvMk.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txtAvMk.Name = "txtAvMk"
+        Me.txtAvMk.Size = New System.Drawing.Size(148, 26)
+        Me.txtAvMk.TabIndex = 3
+        '
+        'rbGreater
+        '
+        Me.rbGreater.AutoSize = True
+        Me.rbGreater.BackColor = System.Drawing.Color.Transparent
+        Me.rbGreater.Location = New System.Drawing.Point(108, 39)
+        Me.rbGreater.Name = "rbGreater"
+        Me.rbGreater.Size = New System.Drawing.Size(43, 24)
+        Me.rbGreater.TabIndex = 6
+        Me.rbGreater.Text = ">"
+        Me.rbGreater.UseVisualStyleBackColor = False
+        Me.rbGreater.Visible = False
+        '
+        'rbLesser
+        '
+        Me.rbLesser.AutoSize = True
+        Me.rbLesser.BackColor = System.Drawing.Color.Transparent
+        Me.rbLesser.Checked = True
+        Me.rbLesser.Location = New System.Drawing.Point(108, 14)
+        Me.rbLesser.Name = "rbLesser"
+        Me.rbLesser.Size = New System.Drawing.Size(43, 24)
+        Me.rbLesser.TabIndex = 5
+        Me.rbLesser.TabStop = True
+        Me.rbLesser.Text = "<"
+        Me.rbLesser.UseVisualStyleBackColor = False
+        Me.rbLesser.Visible = False
+        '
+        'gbPhone
+        '
+        Me.gbPhone.Controls.Add(Me.txtPhoneNo)
+        Me.gbPhone.Location = New System.Drawing.Point(190, 146)
+        Me.gbPhone.Name = "gbPhone"
+        Me.gbPhone.Size = New System.Drawing.Size(157, 69)
+        Me.gbPhone.TabIndex = 50
+        Me.gbPhone.TabStop = False
+        Me.gbPhone.Text = "Phone Number"
+        '
+        'txtPhoneNo
+        '
+        Me.txtPhoneNo.Location = New System.Drawing.Point(7, 27)
+        Me.txtPhoneNo.Name = "txtPhoneNo"
+        Me.txtPhoneNo.Size = New System.Drawing.Size(144, 26)
+        Me.txtPhoneNo.TabIndex = 50
+        '
+        'gbAcMo
+        '
+        Me.gbAcMo.Controls.Add(Me.rbFind)
+        Me.gbAcMo.Controls.Add(Me.rbAdd)
+        Me.gbAcMo.Location = New System.Drawing.Point(27, 12)
+        Me.gbAcMo.Name = "gbAcMo"
+        Me.gbAcMo.Size = New System.Drawing.Size(320, 59)
+        Me.gbAcMo.TabIndex = 0
+        Me.gbAcMo.TabStop = False
+        Me.gbAcMo.Text = "Access Mode"
+        '
+        'rbFind
+        '
+        Me.rbFind.AutoSize = True
+        Me.rbFind.Location = New System.Drawing.Point(167, 25)
+        Me.rbFind.Name = "rbFind"
+        Me.rbFind.Size = New System.Drawing.Size(65, 24)
+        Me.rbFind.TabIndex = 1
+        Me.rbFind.Text = "Find"
+        Me.rbFind.UseVisualStyleBackColor = True
+        '
+        'rbAdd
+        '
+        Me.rbAdd.AutoSize = True
+        Me.rbAdd.Checked = True
+        Me.rbAdd.Location = New System.Drawing.Point(4, 25)
+        Me.rbAdd.Name = "rbAdd"
+        Me.rbAdd.Size = New System.Drawing.Size(63, 24)
+        Me.rbAdd.TabIndex = 0
+        Me.rbAdd.TabStop = True
+        Me.rbAdd.Text = "Add"
+        Me.rbAdd.UseVisualStyleBackColor = True
+        '
+        'gbPaid
+        '
+        Me.gbPaid.Controls.Add(Me.chkPaid)
+        Me.gbPaid.Location = New System.Drawing.Point(584, 165)
+        Me.gbPaid.Name = "gbPaid"
+        Me.gbPaid.Size = New System.Drawing.Size(182, 44)
+        Me.gbPaid.TabIndex = 18
+        Me.gbPaid.TabStop = False
+        Me.gbPaid.Text = "Paid"
+        '
+        'gbList
+        '
+        Me.gbList.Controls.Add(Me.lstStud)
+        Me.gbList.Location = New System.Drawing.Point(27, 263)
+        Me.gbList.Name = "gbList"
+        Me.gbList.Size = New System.Drawing.Size(938, 281)
+        Me.gbList.TabIndex = 19
+        Me.gbList.TabStop = False
+        Me.gbList.Text = "List of Entered Students"
+        '
+        'btnReset
+        '
+        Me.btnReset.Location = New System.Drawing.Point(802, 171)
+        Me.btnReset.Name = "btnReset"
+        Me.btnReset.Size = New System.Drawing.Size(137, 35)
+        Me.btnReset.TabIndex = 51
+        Me.btnReset.Text = "Reset"
+        Me.btnReset.UseVisualStyleBackColor = True
+        '
+        'btnLoadFile
+        '
+        Me.btnLoadFile.Location = New System.Drawing.Point(353, 26)
+        Me.btnLoadFile.Name = "btnLoadFile"
+        Me.btnLoadFile.Size = New System.Drawing.Size(137, 35)
+        Me.btnLoadFile.TabIndex = 52
+        Me.btnLoadFile.Text = "Load File"
+        Me.btnLoadFile.UseVisualStyleBackColor = True
+        '
+        'btnSaveFile
+        '
+        Me.btnSaveFile.Location = New System.Drawing.Point(496, 26)
+        Me.btnSaveFile.Name = "btnSaveFile"
+        Me.btnSaveFile.Size = New System.Drawing.Size(137, 35)
+        Me.btnSaveFile.TabIndex = 53
+        Me.btnSaveFile.Text = "Save File"
+        Me.btnSaveFile.UseVisualStyleBackColor = True
         '
         'Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(916, 544)
-        Me.Controls.Add(Me.txtOther)
-        Me.Controls.Add(Me.btnOther)
-        Me.Controls.Add(Me.btnFemale)
-        Me.Controls.Add(Me.btnMale)
-        Me.Controls.Add(Me.txtDOB)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.chkPaid)
-        Me.Controls.Add(Me.txtPhone)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.lstStud)
+        Me.ClientSize = New System.Drawing.Size(990, 567)
+        Me.Controls.Add(Me.btnSaveFile)
+        Me.Controls.Add(Me.btnLoadFile)
+        Me.Controls.Add(Me.btnReset)
+        Me.Controls.Add(Me.gbList)
+        Me.Controls.Add(Me.gbPaid)
+        Me.Controls.Add(Me.gbAcMo)
+        Me.Controls.Add(Me.gbPhone)
+        Me.Controls.Add(Me.gbAvMk)
+        Me.Controls.Add(Me.gbFirstName)
+        Me.Controls.Add(Me.gbLastName)
+        Me.Controls.Add(Me.gbDOB)
+        Me.Controls.Add(Me.gbGender)
         Me.Controls.Add(Me.btnAddStud)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.txtAvMk)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txtLastName)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.txtFirstName)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Form"
-        Me.Text = "V02.1 - StudDB"
+        Me.Text = "V03 - StudDB"
+        Me.gbGender.ResumeLayout(False)
+        Me.gbGender.PerformLayout()
+        Me.gbDOB.ResumeLayout(False)
+        Me.gbDOB.PerformLayout()
+        Me.gbLastName.ResumeLayout(False)
+        Me.gbLastName.PerformLayout()
+        Me.gbFirstName.ResumeLayout(False)
+        Me.gbFirstName.PerformLayout()
+        Me.gbAvMk.ResumeLayout(False)
+        Me.gbAvMk.PerformLayout()
+        Me.gbPhone.ResumeLayout(False)
+        Me.gbPhone.PerformLayout()
+        Me.gbAcMo.ResumeLayout(False)
+        Me.gbAcMo.PerformLayout()
+        Me.gbPaid.ResumeLayout(False)
+        Me.gbPaid.PerformLayout()
+        Me.gbList.ResumeLayout(False)
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents txtFirstName As TextBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents txtLastName As TextBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents txtAvMk As TextBox
 
 
     Friend WithEvents lstStud As ListBox
-    Friend WithEvents Label8 As Label
-    Friend WithEvents txtPhone As MaskedTextBox
     Friend WithEvents chkPaid As CheckBox
-    Friend WithEvents Label7 As Label
     Friend WithEvents txtDOB As DateTimePicker
     Friend WithEvents btnAddStud As Button
-    Friend WithEvents btnMale As RadioButton
-    Friend WithEvents btnFemale As RadioButton
-    Friend WithEvents btnOther As RadioButton
+    Friend WithEvents rbMale As RadioButton
+    Friend WithEvents rbFemale As RadioButton
+    Friend WithEvents rbOther As RadioButton
     Friend WithEvents txtOther As TextBox
+    Friend WithEvents toolTip As ToolTip
+    Friend WithEvents gbGender As GroupBox
+    Friend WithEvents gbDOB As GroupBox
+    Friend WithEvents gbLastName As GroupBox
+    Friend WithEvents txtFirstName As TextBox
+    Friend WithEvents gbFirstName As GroupBox
+    Friend WithEvents gbAvMk As GroupBox
+    Friend WithEvents gbPhone As GroupBox
+    Friend WithEvents gbAcMo As GroupBox
+    Friend WithEvents rbFind As RadioButton
+    Friend WithEvents rbAdd As RadioButton
+    Friend WithEvents gbPaid As GroupBox
+    Friend WithEvents gbList As GroupBox
+    Friend WithEvents txtPhoneNo As MaskedTextBox
+    Friend WithEvents rbGreater As RadioButton
+    Friend WithEvents rbLesser As RadioButton
+    Friend WithEvents txtAvMk As TextBox
+    Friend WithEvents btnReset As Button
+    Friend WithEvents rbAfter As RadioButton
+    Friend WithEvents rbBefore As RadioButton
+    Friend WithEvents btnLoadFile As Button
+    Friend WithEvents btnSaveFile As Button
 End Class
