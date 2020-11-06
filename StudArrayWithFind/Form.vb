@@ -408,26 +408,30 @@ Public Class Form
 #Region "Matches"
     Public Sub UpdateFind()
         For Each s In students
-            s.matches = True
-            s.matches = (txtFirstName.Text = "" OrElse Regex.IsMatch(s.firstName, "^" + txtFirstName.Text))
-            s.matches = (s.matches AndAlso (txtLastName.Text = "" OrElse Regex.IsMatch(s.lastName, "^" + txtLastName.Text)))
+            Try
+                s.matches = True
+                s.matches = (txtFirstName.Text = "" OrElse Regex.IsMatch(s.firstName, "^" + txtFirstName.Text))
+                s.matches = (s.matches AndAlso (txtLastName.Text = "" OrElse Regex.IsMatch(s.lastName, "^" + txtLastName.Text)))
 
-            If (rbGreater.Checked) Then
-                s.matches = (s.matches AndAlso (txtAvMk.Text = "" OrElse CType(txtAvMk.Text, Single) < s.avMk))
-            Else
-                s.matches = (s.matches AndAlso (txtAvMk.Text = "" OrElse CType(txtAvMk.Text, Single) > s.avMk))
-            End If
+                If (rbGreater.Checked) Then
+                    s.matches = (s.matches AndAlso (txtAvMk.Text = "" OrElse CType(txtAvMk.Text, Single) < s.avMk))
+                Else
+                    s.matches = (s.matches AndAlso (txtAvMk.Text = "" OrElse CType(txtAvMk.Text, Single) > s.avMk))
+                End If
 
-            s.matches = (s.matches AndAlso (Regex.Replace(txtPhoneNo.Text, "[^0-9]", "") = "" OrElse Regex.IsMatch(s.phoneNo, "^" + Regex.Replace(txtPhoneNo.Text, "[^0-9]", ""))))
-            s.matches = (s.matches AndAlso (myGender = "" OrElse Regex.IsMatch(s.gender, "^" + myGender)))
+                s.matches = (s.matches AndAlso (Regex.Replace(txtPhoneNo.Text, "[^0-9]", "") = "" OrElse Regex.IsMatch(s.phoneNo, "^" + Regex.Replace(txtPhoneNo.Text, "[^0-9]", ""))))
+                s.matches = (s.matches AndAlso (myGender = "" OrElse Regex.IsMatch(s.gender, "^" + myGender)))
 
-            If (rbAfter.Checked) Then
-                s.matches = (s.matches AndAlso (s.DOB >= txtDOB.Text))
-            ElseIf (rbBefore.Checked) Then
-                s.matches = (s.matches AndAlso (s.DOB < txtDOB.Text))
-            End If
+                If (rbAfter.Checked) Then
+                    s.matches = (s.matches AndAlso (s.DOB >= txtDOB.Text))
+                ElseIf (rbBefore.Checked) Then
+                    s.matches = (s.matches AndAlso (s.DOB < txtDOB.Text))
+                End If
 
-            s.matches = (s.matches AndAlso (Not chkPaidAltered OrElse chkPaid.Checked = s.paid))
+                s.matches = (s.matches AndAlso (Not chkPaidAltered OrElse chkPaid.Checked = s.paid))
+            Catch ex As Exception
+                Console.WriteLine(ex.Message)
+            End Try
         Next
 
         UpdateList()
