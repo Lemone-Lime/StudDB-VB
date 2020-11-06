@@ -50,7 +50,9 @@ Public Class Form
     Dim students As List(Of Student)
     Dim chkPaidAltered As Boolean = False
     Const myPath As String = "C:\Users\yhall\OneDrive - NSW Department of Education\Yr11\SDD\VB\V01-StudentDatabase\StudArrayWithFind\Storage\Data"
+    Dim editing As Boolean = False
 
+    Dim changesMade As Boolean = False
 #End Region
 #Region "Form Load"
     Private Sub Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -68,24 +70,26 @@ Public Class Form
 #End Region
 #Region "Form Closing Event"
     Private Sub Form_Closing(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
-        Dim boi = MessageBox.Show("Do you want to save your progress first?", "Save Progress?", MessageBoxButtons.YesNoCancel)
-        If (boi = DialogResult.Yes) Then
-            Serialise()
-            MessageBox.Show("Saved Database", "Saved!", MessageBoxButtons.OK)
-        ElseIf boi = DialogResult.Cancel Then
-            e.Cancel = True
+        If (changesMade) Then
+            Dim boi = MessageBox.Show("Do you want to save your progress first?", "Save Progress?", MessageBoxButtons.YesNoCancel)
+            If (boi = DialogResult.Yes) Then
+                Serialise()
+                MessageBox.Show("Saved Database", "Saved!", MessageBoxButtons.OK)
+            ElseIf boi = DialogResult.Cancel Then
+                e.Cancel = True
+            End If
         End If
     End Sub
 #End Region
 #Region "Update Names"
     Private Sub txtFirstName_TextChanged(sender As Object, e As EventArgs) Handles txtFirstName.TextChanged, txtFirstName.Leave
         If (rbAdd.Checked) Then
+            changesMade = True
             ValidateFirstName()
         Else
             UpdateFind()
         End If
     End Sub
-
     Private Sub txtLastName_TextChanged(sender As Object, e As EventArgs) Handles txtLastName.TextChanged, txtLastName.Leave
         If (rbAdd.Checked) Then
             ValidateLastName()
@@ -189,6 +193,9 @@ Public Class Form
             rbAfter.Visible = True
             rbBefore.Visible = True
 
+            btnEdit.Visible = False
+            btnRemove.Visible = False
+
             txtAvMk.SetBounds(txtAvMk.Location.X, txtAvMk.Location.Y, 64, txtAvMk.Height)
 
             'change colours back to default
@@ -213,11 +220,70 @@ Public Class Form
     Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
         ResetForm()
     End Sub
+    Private Sub rbBefAft_CheckedChanged(sender As Object, e As EventArgs) Handles rbBefore.CheckedChanged, rbAfter.CheckedChanged
+        UpdateFind()
+    End Sub
+    Private Sub btnLoadFile_Click(sender As Object, e As EventArgs) Handles btnLoadFile.Click
+        Deserialise()
+        MessageBox.Show("Loaded the file and updated the list!", "File Loaded", MessageBoxButtons.OK)
+    End Sub
+    Private Sub btnSaveFile_Click(sender As Object, e As EventArgs) Handles btnSaveFile.Click
+        Serialise()
+        changesMade = False
+        MessageBox.Show("File successfully saved!", "File Saved", MessageBoxButtons.OK)
+    End Sub
+    Private Sub lstStud_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstStud.SelectedIndexChanged
+        If (rbAdd.Checked) Then
+            Console.WriteLine(lstStud.SelectedIndex)
+            btnEdit.Visible = True
+            btnRemove.Visible = True
+            btnEdit.SetBounds(btnEdit.Location.X, 18 + (13 * lstStud.SelectedIndex), btnEdit.Width, btnEdit.Height)
+            btnRemove.SetBounds(btnRemove.Location.X, 18 + (13 * lstStud.SelectedIndex), btnRemove.Width, btnRemove.Height)
+        End If
+    End Sub
+    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
+        editing = True
+        btnAddStud.Text = "Edit Student"
+
+        txtFirstName.Text = students(lstStud.SelectedIndex).firstName
+        txtLastName.Text = students(lstStud.SelectedIndex).lastName
+        txtAvMk.Text = students(lstStud.SelectedIndex).avMk
+        txtPhoneNo.Text = students(lstStud.SelectedIndex).phoneNo
+
+        If (students(lstStud.SelectedIndex).gender = "Male") Then
+            rbMale.Checked = True
+        ElseIf (students(lstStud.SelectedIndex).gender = "Female") Then
+            rbFemale.Checked = True
+        Else
+            rbOther.Checked = True
+            txtOther.Text = students(lstStud.SelectedIndex).gender
+        End If
+
+        txtDOB.Value = students(lstStud.SelectedIndex).DOB
+        chkPaid.Checked = students(lstStud.SelectedIndex).paid
+    End Sub
+    Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles btnRemove.Click
+        If (students.Count > 1) Then
+            students.RemoveAt(lstStud.SelectedIndex)
+            UpdateList()
+            btnRemove.Visible = False
+            btnEdit.Visible = False
+            changesMade = True
+        Else
+            MessageBox.Show("You must always have more than one item in the database!", "Must have a student in the database", MessageBoxButtons.OK)
+        End If
+    End Sub
 #End Region
 #Region "Add Student Button"
     Private Sub btnAddStud_Click(sender As Object, e As EventArgs) Handles btnAddStud.Click
-        'place text from text boxes into the array - first students(0), then students(1), students(2) etc
-        students.Add(New Student(txtFirstName.Text, txtLastName.Text, txtDOB.Text, myGender, txtAvMk.Text, txtPhoneNo.Text, chkPaid.Checked))
+        If (editing) Then
+            students(lstStud.SelectedIndex) = New Student(txtFirstName.Text, txtLastName.Text, txtDOB.Text, myGender, txtAvMk.Text, txtPhoneNo.Text, chkPaid.Checked)
+            editing = False
+            btnAddStud.Text = "Add Student"
+            changesMade = True
+        Else
+            students.Add(New Student(txtFirstName.Text, txtLastName.Text, txtDOB.Text, myGender, txtAvMk.Text, txtPhoneNo.Text, chkPaid.Checked))
+        End If
 
         ResetForm()
         UpdateList()
@@ -385,29 +451,8 @@ Public Class Form
     Private Sub CheckComplete()
         If (validFirstName And validLastName And validDOB And validGender And validAvMk And validPhoneNo) Then
             btnAddStud.Enabled = True
-            Console.WriteLine("//......| The form is complete! |......\\")
         Else
             btnAddStud.Enabled = False
-            Console.Write("The form is not complete. ")
-            If (Not validFirstName) Then
-                Console.Write("Invalid First Name. ")
-            End If
-            If (Not validLastName) Then
-                Console.Write("Invalid Last Name. ")
-            End If
-            If (Not validDOB) Then
-                Console.Write("Invalid DOB. ")
-            End If
-            If (Not validGender) Then
-                Console.Write("Invalid Gender. ")
-            End If
-            If (Not validAvMk) Then
-                Console.Write("Invalid AvMk. ")
-            End If
-            If (Not validPhoneNo) Then
-                Console.Write("Invalid Phone No. ")
-            End If
-            Console.WriteLine()
         End If
     End Sub
     Private Sub ResetForm()
@@ -462,16 +507,6 @@ Public Class Form
 
         UpdateList()
     End Sub
-    Private Sub rbBefAft_CheckedChanged(sender As Object, e As EventArgs) Handles rbBefore.CheckedChanged, rbAfter.CheckedChanged
-        UpdateFind()
-    End Sub
-    Private Sub btnLoadFile_Click(sender As Object, e As EventArgs) Handles btnLoadFile.Click
-        Deserialise()
-        MessageBox.Show("Loaded the file and updated the list!", "File Loaded", MessageBoxButtons.OK)
-    End Sub
-    Private Sub btnSaveFile_Click(sender As Object, e As EventArgs) Handles btnSaveFile.Click
-        Serialise()
-        MessageBox.Show("File successfully saved!", "File Saved", MessageBoxButtons.OK)
-    End Sub
+
 #End Region
 End Class

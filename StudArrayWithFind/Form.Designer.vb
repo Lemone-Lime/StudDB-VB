@@ -39,8 +39,8 @@ Partial Class Form
         Me.rbAfter = New System.Windows.Forms.RadioButton()
         Me.rbBefore = New System.Windows.Forms.RadioButton()
         Me.gbLastName = New System.Windows.Forms.GroupBox()
-        Me.gbFirstName = New System.Windows.Forms.GroupBox()
         Me.txtFirstName = New System.Windows.Forms.TextBox()
+        Me.gbFirstName = New System.Windows.Forms.GroupBox()
         Me.gbAvMk = New System.Windows.Forms.GroupBox()
         Me.txtAvMk = New System.Windows.Forms.TextBox()
         Me.rbGreater = New System.Windows.Forms.RadioButton()
@@ -52,6 +52,8 @@ Partial Class Form
         Me.rbAdd = New System.Windows.Forms.RadioButton()
         Me.gbPaid = New System.Windows.Forms.GroupBox()
         Me.gbList = New System.Windows.Forms.GroupBox()
+        Me.btnEdit = New System.Windows.Forms.Button()
+        Me.btnRemove = New System.Windows.Forms.Button()
         Me.btnReset = New System.Windows.Forms.Button()
         Me.btnLoadFile = New System.Windows.Forms.Button()
         Me.btnSaveFile = New System.Windows.Forms.Button()
@@ -218,6 +220,15 @@ Partial Class Form
         Me.gbLastName.Text = "Last Name"
         Me.toolTip.SetToolTip(Me.gbLastName, "Names must contain only letters from A-Z and no numbers or special characters.")
         '
+        'txtFirstName
+        '
+        Me.txtFirstName.Location = New System.Drawing.Point(4, 27)
+        Me.txtFirstName.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txtFirstName.Name = "txtFirstName"
+        Me.txtFirstName.Size = New System.Drawing.Size(148, 26)
+        Me.txtFirstName.TabIndex = 2
+        Me.toolTip.SetToolTip(Me.txtFirstName, "Names must contain only letters from A-Z, ""-"" and ""''""")
+        '
         'gbFirstName
         '
         Me.gbFirstName.Controls.Add(Me.txtFirstName)
@@ -227,15 +238,6 @@ Partial Class Form
         Me.gbFirstName.TabIndex = 0
         Me.gbFirstName.TabStop = False
         Me.gbFirstName.Text = "FirstName"
-        Me.toolTip.SetToolTip(Me.gbFirstName, "Names must contain only letters from A-Z and no numbers or special characters.")
-        '
-        'txtFirstName
-        '
-        Me.txtFirstName.Location = New System.Drawing.Point(4, 27)
-        Me.txtFirstName.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.txtFirstName.Name = "txtFirstName"
-        Me.txtFirstName.Size = New System.Drawing.Size(148, 26)
-        Me.txtFirstName.TabIndex = 2
         '
         'gbAvMk
         '
@@ -327,10 +329,10 @@ Partial Class Form
         Me.rbAdd.Checked = True
         Me.rbAdd.Location = New System.Drawing.Point(4, 25)
         Me.rbAdd.Name = "rbAdd"
-        Me.rbAdd.Size = New System.Drawing.Size(63, 24)
+        Me.rbAdd.Size = New System.Drawing.Size(103, 24)
         Me.rbAdd.TabIndex = 0
         Me.rbAdd.TabStop = True
-        Me.rbAdd.Text = "Add"
+        Me.rbAdd.Text = "Add / Edit"
         Me.rbAdd.UseVisualStyleBackColor = True
         '
         'gbPaid
@@ -345,6 +347,8 @@ Partial Class Form
         '
         'gbList
         '
+        Me.gbList.Controls.Add(Me.btnEdit)
+        Me.gbList.Controls.Add(Me.btnRemove)
         Me.gbList.Controls.Add(Me.lstStud)
         Me.gbList.Location = New System.Drawing.Point(27, 263)
         Me.gbList.Name = "gbList"
@@ -352,6 +356,30 @@ Partial Class Form
         Me.gbList.TabIndex = 19
         Me.gbList.TabStop = False
         Me.gbList.Text = "List of Entered Students"
+        '
+        'btnEdit
+        '
+        Me.btnEdit.FlatAppearance.BorderSize = 0
+        Me.btnEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!)
+        Me.btnEdit.Location = New System.Drawing.Point(725, 25)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.Size = New System.Drawing.Size(102, 24)
+        Me.btnEdit.TabIndex = 12
+        Me.btnEdit.Text = "Edit"
+        Me.btnEdit.UseVisualStyleBackColor = True
+        Me.btnEdit.Visible = False
+        '
+        'btnRemove
+        '
+        Me.btnRemove.FlatAppearance.BorderSize = 0
+        Me.btnRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!)
+        Me.btnRemove.Location = New System.Drawing.Point(829, 25)
+        Me.btnRemove.Name = "btnRemove"
+        Me.btnRemove.Size = New System.Drawing.Size(102, 24)
+        Me.btnRemove.TabIndex = 54
+        Me.btnRemove.Text = "Remove"
+        Me.btnRemove.UseVisualStyleBackColor = True
+        Me.btnRemove.Visible = False
         '
         'btnReset
         '
@@ -364,7 +392,7 @@ Partial Class Form
         '
         'btnLoadFile
         '
-        Me.btnLoadFile.Location = New System.Drawing.Point(353, 26)
+        Me.btnLoadFile.Location = New System.Drawing.Point(678, 26)
         Me.btnLoadFile.Name = "btnLoadFile"
         Me.btnLoadFile.Size = New System.Drawing.Size(137, 35)
         Me.btnLoadFile.TabIndex = 52
@@ -373,7 +401,7 @@ Partial Class Form
         '
         'btnSaveFile
         '
-        Me.btnSaveFile.Location = New System.Drawing.Point(496, 26)
+        Me.btnSaveFile.Location = New System.Drawing.Point(821, 26)
         Me.btnSaveFile.Name = "btnSaveFile"
         Me.btnSaveFile.Size = New System.Drawing.Size(137, 35)
         Me.btnSaveFile.TabIndex = 53
@@ -402,7 +430,7 @@ Partial Class Form
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Form"
-        Me.Text = "V03 - StudDB"
+        Me.Text = "V04 - StudDB"
         Me.gbGender.ResumeLayout(False)
         Me.gbGender.PerformLayout()
         Me.gbDOB.ResumeLayout(False)
@@ -456,4 +484,6 @@ Partial Class Form
     Friend WithEvents rbBefore As RadioButton
     Friend WithEvents btnLoadFile As Button
     Friend WithEvents btnSaveFile As Button
+    Friend WithEvents btnEdit As Button
+    Friend WithEvents btnRemove As Button
 End Class
