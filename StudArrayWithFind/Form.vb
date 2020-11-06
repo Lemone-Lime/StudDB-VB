@@ -63,6 +63,7 @@ Public Class Form
         txtPhoneNo.Mask = "0000-000-000"
         txtPhoneNo.Text = ""
         txtPhoneNo.BackColor = validColour
+        lstStud.AllowDrop = True
         students = New List(Of Student)
 
         LoadTestRecords()
@@ -157,7 +158,7 @@ Public Class Form
         UpdateFind()
     End Sub
 #End Region
-#Region "Update Other Buttons"
+#Region "Update Other Elements"
     Private Sub btnAccess_CheckedChanged(sender As Object, e As EventArgs) Handles rbAdd.CheckedChanged
         If (rbAdd.Checked) Then
             btnAddStud.Visible = True
