@@ -49,7 +49,7 @@ Public Class Form
 
     Dim students As List(Of Student)
     Dim chkPaidAltered As Boolean = False
-    Const myPath As String = "C:\Users\yhall\OneDrive - NSW Department of Education\Yr11\SDD\VB\V01-StudentDatabase\StudArrayWithFind\Storage\Data"
+    Const myPath As String = "StudArrayWithFind\Storage\Data"
     Dim editing As Boolean = False
 
     Dim changesMade As Boolean = False
@@ -57,6 +57,10 @@ Public Class Form
 #Region "Form Load"
     Private Sub Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'allocate memory
+        Console.WriteLine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(Application.ExecutablePath).FullName).FullName).FullName).FullName)
+        Console.WriteLine(myPath)
+        Console.WriteLine(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(Application.ExecutablePath).FullName).FullName).FullName).FullName, myPath))
+
         invalidColour = Color.IndianRed
         validColour = SystemColors.Window
         txtAvMk.SetBounds(txtAvMk.Location.X, txtAvMk.Location.Y, 99, txtAvMk.Height)
@@ -507,12 +511,12 @@ Public Class Form
     End Sub
     Private Sub Serialise()
         Dim output As String = JsonConvert.SerializeObject(students)
-        File.WriteAllText(myPath, output)
+        Dim boi As String = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(Application.ExecutablePath).FullName).FullName).FullName).FullName, myPath)
+        File.WriteAllText(boi, output)
     End Sub
     Private Sub Deserialise()
-        Dim strLine As String = File.ReadAllText(myPath)
+        Dim strLine As String = File.ReadAllText(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(Application.ExecutablePath).FullName).FullName).FullName).FullName, myPath))
         students = JsonConvert.DeserializeObject(Of List(Of Student))(strLine)
-
         UpdateList()
     End Sub
 
