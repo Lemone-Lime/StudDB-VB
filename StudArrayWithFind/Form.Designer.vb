@@ -78,6 +78,7 @@ Partial Class Form
         '
         'btnAddStud
         '
+        Me.btnAddStud.BackColor = System.Drawing.SystemColors.Window
         Me.btnAddStud.Enabled = False
         Me.btnAddStud.Location = New System.Drawing.Point(390, 223)
         Me.btnAddStud.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
@@ -85,7 +86,7 @@ Partial Class Form
         Me.btnAddStud.Size = New System.Drawing.Size(156, 35)
         Me.btnAddStud.TabIndex = 10
         Me.btnAddStud.Text = "Add Student"
-        Me.btnAddStud.UseVisualStyleBackColor = True
+        Me.btnAddStud.UseVisualStyleBackColor = False
         '
         'lstStud
         '
@@ -359,6 +360,7 @@ Partial Class Form
         '
         'btnEdit
         '
+        Me.btnEdit.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.btnEdit.FlatAppearance.BorderSize = 0
         Me.btnEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!)
         Me.btnEdit.Location = New System.Drawing.Point(725, 25)
@@ -366,11 +368,12 @@ Partial Class Form
         Me.btnEdit.Size = New System.Drawing.Size(102, 24)
         Me.btnEdit.TabIndex = 12
         Me.btnEdit.Text = "Edit"
-        Me.btnEdit.UseVisualStyleBackColor = True
+        Me.btnEdit.UseVisualStyleBackColor = False
         Me.btnEdit.Visible = False
         '
         'btnRemove
         '
+        Me.btnRemove.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.btnRemove.FlatAppearance.BorderSize = 0
         Me.btnRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!)
         Me.btnRemove.Location = New System.Drawing.Point(829, 25)
@@ -378,35 +381,38 @@ Partial Class Form
         Me.btnRemove.Size = New System.Drawing.Size(102, 24)
         Me.btnRemove.TabIndex = 54
         Me.btnRemove.Text = "Remove"
-        Me.btnRemove.UseVisualStyleBackColor = True
+        Me.btnRemove.UseVisualStyleBackColor = False
         Me.btnRemove.Visible = False
         '
         'btnReset
         '
+        Me.btnReset.BackColor = System.Drawing.SystemColors.Window
         Me.btnReset.Location = New System.Drawing.Point(802, 171)
         Me.btnReset.Name = "btnReset"
         Me.btnReset.Size = New System.Drawing.Size(137, 35)
         Me.btnReset.TabIndex = 51
         Me.btnReset.Text = "Reset"
-        Me.btnReset.UseVisualStyleBackColor = True
+        Me.btnReset.UseVisualStyleBackColor = False
         '
         'btnLoadFile
         '
+        Me.btnLoadFile.BackColor = System.Drawing.SystemColors.Window
         Me.btnLoadFile.Location = New System.Drawing.Point(678, 26)
         Me.btnLoadFile.Name = "btnLoadFile"
         Me.btnLoadFile.Size = New System.Drawing.Size(137, 35)
         Me.btnLoadFile.TabIndex = 52
         Me.btnLoadFile.Text = "Load File"
-        Me.btnLoadFile.UseVisualStyleBackColor = True
+        Me.btnLoadFile.UseVisualStyleBackColor = False
         '
         'btnSaveFile
         '
+        Me.btnSaveFile.BackColor = System.Drawing.SystemColors.Window
         Me.btnSaveFile.Location = New System.Drawing.Point(821, 26)
         Me.btnSaveFile.Name = "btnSaveFile"
         Me.btnSaveFile.Size = New System.Drawing.Size(137, 35)
         Me.btnSaveFile.TabIndex = 53
         Me.btnSaveFile.Text = "Save File"
-        Me.btnSaveFile.UseVisualStyleBackColor = True
+        Me.btnSaveFile.UseVisualStyleBackColor = False
         '
         'Form
         '
@@ -430,7 +436,7 @@ Partial Class Form
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Form"
-        Me.Text = "V04.2 - StudDB"
+        Me.Text = "V04.3 - StudDB"
         Me.gbGender.ResumeLayout(False)
         Me.gbGender.PerformLayout()
         Me.gbDOB.ResumeLayout(False)

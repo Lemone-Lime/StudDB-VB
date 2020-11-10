@@ -63,6 +63,7 @@ Public Class Form
         txtPhoneNo.Mask = "0000-000-000"
         txtPhoneNo.Text = ""
         txtPhoneNo.BackColor = validColour
+
         lstStud.AllowDrop = True
         students = New List(Of Student)
 
@@ -235,7 +236,6 @@ Public Class Form
     End Sub
     Private Sub lstStud_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstStud.SelectedIndexChanged
         If (rbAdd.Checked) Then
-            Console.WriteLine(lstStud.SelectedIndex)
             btnEdit.Visible = True
             btnRemove.Visible = True
             btnEdit.SetBounds(btnEdit.Location.X, 18 + (13 * lstStud.SelectedIndex), btnEdit.Width, btnEdit.Height)
@@ -262,6 +262,9 @@ Public Class Form
 
         txtDOB.Value = students(lstStud.SelectedIndex).DOB
         chkPaid.Checked = students(lstStud.SelectedIndex).paid
+
+        btnEdit.Visible = False
+        btnRemove.Visible = False
     End Sub
     Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles btnRemove.Click
         If (students.Count > 1) Then
